@@ -101,7 +101,7 @@ class WC_Loadmore  {
                 'price' => $product->get_price(),
                 'sale_price' => $product->get_sale_price(),
                 'regular_price' => $product->get_regular_price(),
-                'product_image' => wp_get_attachment_image_src( $product_image, 'single-post-thumbnail' )[0],
+                'product_image' => $product_image,
                 'rating_count' => $product->get_average_rating(),
                 'review_count' => $product->get_review_count(),
                 'vendor_info' => $vendor->display_name,
