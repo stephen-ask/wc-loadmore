@@ -50,6 +50,10 @@
     min-height: 70px;
 }
 
+.wc-product-categories .item label:hover {
+    color: #1a92cf;
+}
+
 @media (min-width: 767px) {
     .wc-product-categories .item h4 {
 

@@ -152,7 +152,7 @@
             product_array=[];
             localStorage.setItem('paged', 2);
             $('.product-load-more').prop('disabled', false);
-            $('.elementor-tabs-wrapper').find('.elementor-active').data('tab');
+            let product_listing_type = $('.elementor-tabs-wrapper').find('.elementor-active').data('tab');
 
             $('.wc-product-category').prop('checked', false);
             $(this).prop('checked') ? $(this).prop('checked', false) : $(this).prop('checked', true);
@@ -162,7 +162,7 @@
             if( id != '' ) {
                 form.append( 'category_id', id );
             }
-            
+            form.append( 'type', product_listing_type );
             form.append( 'action', 'ajax_product_pagination' );
             ajax_post(ajaxurl, form, false);
         });
@@ -173,12 +173,14 @@
         product_array=[];
         paged = localStorage.getItem('paged');
         let id = $('.wc-product-category').data('id');
+        let product_listing_type = $('.elementor-tabs-wrapper').find('.elementor-active').data('tab');
+
         let form = new FormData();
         
         if( id != '' ) {
             form.append( 'category_id', id );
         }
-        
+        form.append( 'type', product_listing_type );
         form.append( 'action', 'ajax_product_pagination' );
         form.append( 'paged', paged );
         

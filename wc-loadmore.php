@@ -69,6 +69,7 @@ class WC_Loadmore  {
         // PARAMETERS
         $category_id = sanitize_text_field( $_POST['category_id'] );
         $paged = sanitize_text_field( $_POST['paged'] ) ?? 1;
+        $type = sanitize_text_field( $_POST['type'] ) ?? 1;
         $products_array = array();
 
         $args = array(
@@ -77,6 +78,21 @@ class WC_Loadmore  {
             'paged' => $paged,
             'status' => 'publish'
         );
+
+        if($type == 2) {
+            $args['tax_query'] = array(
+                'taxonomy' => 'product_visibility',
+                'field'    => 'name',
+                'terms'    => 'featured',
+                'operator' => 'IN', 
+            );
+        } 
+
+        if($type == 3) {
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+        } 
+
 
         // RETURN ERROR IF FUNTION DOES NOT EXIST 
         if( !function_exists( "wc_get_products" ) ) wp_send_json_error("wc_get_products was not exist");
