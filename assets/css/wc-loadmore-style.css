@@ -41,6 +41,11 @@
     color: #000000b2;
 }
 
+.button.product-load-more {
+    margin: 0 auto !important;
+    display: block !important;
+}
+
 @media (min-width: 767px) {
     .wc-product-categories .item h4 {
 
