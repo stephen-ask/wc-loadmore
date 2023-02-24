@@ -20,7 +20,7 @@
                     $('.product-load-more').html('NO MORE PRODUCTS TO LOAD');
                     return;
                 }
-                $('.product-load-more').html('LOADMORE');                 
+                $('.product-load-more').html('LOAD MORE');                 
                 categoryProductlisting( product_array, paged );
             },
             processData: false,
@@ -122,8 +122,9 @@
         }
         
         $('.products').append(productItem);
-        // $('.woocommerce ul.products li.product, .woocommerce-page ul.products li.product').css('margin', '0 2.5% 2.2em 0');
-
+        if( $(window).width() > 767 ) {
+            $('.woocommerce ul.products li.product, .woocommerce-page ul.products li.product').css('margin', '0 2.5% 2.2em 0');
+        }
     }
     $(document).ready(function(){
         // LOADS PRODUCTS BASED ON CATEGORY 

@@ -90,7 +90,9 @@ class WC_Loadmore  {
             $product_id = $product->get_id();
             $vendor_id = get_post_field( 'post_author', $product_id );
             $vendor = get_userdata( $vendor_id );
-            $product_image = get_post_thumbnail_id( $product_id ) ?? get_post_thumbnail_id( $this->thumbnail_placeholder );
+            $product_image_id = get_post_thumbnail_id( $product_id ) ?? get_post_thumbnail_id( $this->thumbnail_placeholder );
+            $product_image = wp_get_attachment_image_src( $product_image_id, 'single-post-thumbnail' )[0] ?? wp_get_attachment_image_url( $this->thumbnail_placeholder );
+
             $products_array[] = array(
                 'product_id' => $product_id,
                 'product_name' => $product->get_name(),
