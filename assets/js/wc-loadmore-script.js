@@ -5,6 +5,10 @@
     
     var product_array = [];
     var paged = 2;
+
+    if($('.wc-product-category')) {
+        $('.wc-product-category').prop('checked', false);
+    }
     
     // HANDLES PRODUCTS AJAX REQUEST 
     function ajax_post( url, data, paged ) {
@@ -60,8 +64,15 @@
                         productItem[index] += '</ins>';
                     }
 
+                    if(item.sale_price == '' && item.regular_price != '') {
+                        productItem[index] += '<ins>';
+                            productItem[index] += '<span class="woocommerce-Price-amount amount"><bdi>';
+                            productItem[index] += '<span class="woocommerce-Price-currencySymbol">$</span>'+item.regular_price+'</bdi></span>';
+                        productItem[index] += '</ins>';
+                    }
+
                     // PRODUCT PRICE 
-                    if(item.regular_price != '') {
+                    if(item.regular_price != '' && item.sale_price != '') {
                         productItem[index] += '<del>';
                             productItem[index] += '<span class="woocommerce-Price-amount amount">';
                                 productItem[index] += '<bdi>';
