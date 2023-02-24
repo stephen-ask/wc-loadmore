@@ -46,6 +46,10 @@
     display: block !important;
 }
 
+.product-author-name {
+    min-height: 21px;
+}
+
 @media (min-width: 767px) {
     .wc-product-categories .item h4 {
 
