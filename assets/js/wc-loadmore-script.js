@@ -25,7 +25,7 @@
                 
                 if( paged == true && product_array.length == 0 ) {
                     console.log('empty no products loaded');
-                    $('.product-load-more').html('NO MORE PRODUCTS TO LOAD');
+                    $('.product-load-more').html('NO MORE PRODUCTS TO LOAD').prop('disabled', true);
                     productEmpty = true;
                     return;
                 }
@@ -151,7 +151,9 @@
         $('.wc-product-category').click(function(e){
             product_array=[];
             localStorage.setItem('paged', 2);
-        
+            $('.product-load-more').prop('disabled', false);
+            $('.elementor-tabs-wrapper').find('.elementor-active').data('tab');
+
             $('.wc-product-category').prop('checked', false);
             $(this).prop('checked') ? $(this).prop('checked', false) : $(this).prop('checked', true);
             let id = $(this).data('id');
