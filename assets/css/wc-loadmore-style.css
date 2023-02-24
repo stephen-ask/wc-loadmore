@@ -1,5 +1,7 @@
 .wc-product-categories  {
     list-style: none;
+    padding: 25px;
+    margin-left: 0;
 }
 
 .wc-product-categories .item input {
@@ -26,4 +28,16 @@
 
 .wc-product-categories .item:last-child {
     border-bottom: none;
+}
+
+.wc-product-categories .item h4 {
+    font-family:"Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@media (min-width: 767px) {
+    .wc-product-categories .item h4 {
+
+    }
 }
