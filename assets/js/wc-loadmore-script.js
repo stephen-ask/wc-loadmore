@@ -4,7 +4,11 @@
     $.noConflict( );
     
     var product_array = [];
-    var paged = 2;
+
+    localStorage.setItem('paged', 2);
+
+    var paged = localStorage.getItem('paged');
+    var productEmpty = false;
 
     if($('.wc-product-category')) {
         $('.wc-product-category').prop('checked', false);
@@ -22,8 +26,10 @@
                 if( paged == true && product_array.length == 0 ) {
                     console.log('empty no products loaded');
                     $('.product-load-more').html('NO MORE PRODUCTS TO LOAD');
+                    productEmpty = true;
                     return;
                 }
+                productEmpty = false;
                 $('.product-load-more').html('LOAD MORE');                 
                 categoryProductlisting( product_array, paged );
             },
@@ -141,7 +147,7 @@
         // LOADS PRODUCTS BASED ON CATEGORY 
         $('.wc-product-category').click(function(e){
             product_array=[];
-            paged = 1;
+            localStorage.setItem('paged', 2);
         
             $('.wc-product-category').prop('checked', false);
             $(this).prop('checked') ? $(this).prop('checked', false) : $(this).prop('checked', true);
@@ -160,7 +166,7 @@
     // LOADS PRODUCT PAGINATION 
     $('.product-load-more').click(function(){
         product_array=[];
-
+        paged = localStorage.getItem('paged');
         let id = $('.wc-product-category').data('id');
         let form = new FormData();
         
@@ -171,7 +177,10 @@
         form.append( 'action', 'ajax_product_pagination' );
         form.append( 'paged', paged );
         
-        ajax_post(ajaxurl, form, true); 
-        paged++;
+        ajax_post(ajaxurl, form, true);
+        if(productEmpty == false) {
+            paged++; 
+        }
+        localStorage.setItem('paged', paged); 
     });
 })(jQuery);
