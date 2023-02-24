@@ -36,6 +36,11 @@
     line-height: 22px;
 }
 
+.wc-product-categories .item label {
+    font-weight: 400;
+    color: #000000b2;
+}
+
 @media (min-width: 767px) {
     .wc-product-categories .item h4 {
 
