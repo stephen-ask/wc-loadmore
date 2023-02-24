@@ -91,6 +91,9 @@
                     // VENDOR INFO
                     if(item.vendor_info) {
                         productItem[index] += '<div class="product-author-name"> By : '+item.vendor_info+'</div></span>';
+                    } 
+                    else { 
+                        productItem[index] += '<div class="product-author-name"></div></span>';
                     }
 
                 productItem[index] += '</a>';
