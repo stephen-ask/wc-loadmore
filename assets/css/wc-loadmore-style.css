@@ -1,6 +1,7 @@
 .wc-product-categories  {
     list-style: none;
 }
+
 .wc-product-categories .item input {
     margin-right: 10px;
 }
@@ -8,7 +9,21 @@
     margin: 0 auto;
     display: block;
 }
+
 .woocommerce ul.products li.product, 
 .woocommerce-page ul.products li.product {
 	min-height: 500px;
+}
+
+.wc-product-categories-container {
+    background-color: #FAFBEF;
+}
+
+.wc-product-categories .item {
+    border-bottom: 1px solid #000;
+    padding-top: 10px;
+}
+
+.wc-product-categories .item:last-child {
+    border-bottom: none;
 }

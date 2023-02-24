@@ -60,7 +60,7 @@ class WC_Loadmore  {
     
     // LOADMORE BUTTON CALLBACK
     function loadmore_btn() {
-        echo '<button class="button product-load-more">LOADMORE</button>';
+        echo '<div class="ajax-pagination"><button class="button product-load-more">LOADMORE</button></div>';
     }
 
     // PRODUCTS LISTING WITH PAGINATION 
@@ -130,7 +130,9 @@ class WC_Loadmore  {
         if(empty($terms)) $html = "No Records Found"; 
 
         $html = "<div class='wc-product-categories-container'>";
+         
             $html .= "<ul class='wc-product-categories'>";
+            $html .= '<li class="item"><h4 class="">Filter By Product Categories</h4></li>';
             $i = 1;
             foreach($terms as $term) {
                 $html .= "<li class='item'>";
