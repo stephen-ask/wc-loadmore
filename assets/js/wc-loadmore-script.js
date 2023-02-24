@@ -135,8 +135,11 @@
             let id = $(this).data('id');
 
             let form = new FormData();
-            form.append( 'category_id', id );
-            form.append( 'action', 'product__list' );
+            if( id != '' ) {
+                form.append( 'category_id', id );
+            }
+            
+            form.append( 'action', 'ajax_product_pagination' );
             ajax_post(ajaxurl, form, false);
         });
     });
@@ -148,8 +151,11 @@
         let id = $('.wc-product-category').data('id');
         let form = new FormData();
         
-        form.append( 'category_id', id );
-        form.append( 'action', 'product__list' );
+        if( id != '' ) {
+            form.append( 'category_id', id );
+        }
+        
+        form.append( 'action', 'ajax_product_pagination' );
         form.append( 'paged', paged );
         
         ajax_post(ajaxurl, form, true); 

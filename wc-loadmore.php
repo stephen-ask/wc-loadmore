@@ -28,8 +28,8 @@ class WC_Loadmore  {
     }
     
     function init_woocommerce() {
-        add_action( 'wp_ajax_priv_product__list', [$this,'product__list'] );
-        add_action( 'wp_ajax_nopriv_product__list', [$this,'product__list'] );
+        add_action( 'wp_ajax_priv_ajax_product_pagination', [$this,'ajax_product_pagination'] );
+        add_action( 'wp_ajax_nopriv_ajax_product_pagination', [$this,'ajax_product_pagination'] );
         
     
         add_filter( 'woocommerce_shortcode_products_query', [$this,'add_custom_button_to_product_shortcode'] );
@@ -64,8 +64,8 @@ class WC_Loadmore  {
     }
 
     // PRODUCTS LISTING WITH PAGINATION 
-    function product__list(){
-        
+    function ajax_product_pagination(){
+    
         // PARAMETERS
         $category_id = sanitize_text_field( $_POST['category_id'] );
         $paged = sanitize_text_field( $_POST['paged'] ) ?? 1;
@@ -111,8 +111,12 @@ class WC_Loadmore  {
         wp_send_json_success($products_array);
     }
 
-    function product_category_list($attr) {
+    function product_category_list() {
         
+        $attr = array();
+
+        do_action( 'shortcode_category_list_attribute', $attr );
+
         // GET PRODUCT CATEGORIES 
         $terms = get_terms(
             array(
