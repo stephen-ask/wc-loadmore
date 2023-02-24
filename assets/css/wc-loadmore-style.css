@@ -8,3 +8,7 @@
     margin: 0 auto;
     display: block;
 }
+.woocommerce ul.products li.product, 
+.woocommerce-page ul.products li.product {
+	min-height: 500px;
+}
