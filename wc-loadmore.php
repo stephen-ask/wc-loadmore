@@ -28,7 +28,7 @@ class WC_Loadmore  {
     }
     
     function init_woocommerce() {
-        add_action( 'wp_ajax_priv_ajax_product_pagination', [$this,'ajax_product_pagination'] );
+        add_action( 'wp_ajax_ajax_product_pagination', [$this,'ajax_product_pagination'] );
         add_action( 'wp_ajax_nopriv_ajax_product_pagination', [$this,'ajax_product_pagination'] );
         
     

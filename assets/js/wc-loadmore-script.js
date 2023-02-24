@@ -122,7 +122,7 @@
         }
         
         $('.products').append(productItem);
-        $('.woocommerce ul.products li.product, .woocommerce-page ul.products li.product').css('margin', '0 2.5% 2.2em 0');
+        // $('.woocommerce ul.products li.product, .woocommerce-page ul.products li.product').css('margin', '0 2.5% 2.2em 0');
 
     }
     $(document).ready(function(){
