@@ -43,7 +43,7 @@
         let productItem = [];
 
         product_array.forEach((item, index)=>{
-            let rating_percentage = ( item.rating_count / 100 ) * 5;
+            let rating_percentage = ( item.rating_count / 5 ) * 100;
             productItem[index] = '<li class="blog-post product type-product post-'+item.product_id+' status-publish instock product_cat-seller has-post-thumbnail sale shipping-taxable purchasable product-type-simple">';
                 productItem[index] += '<a href="'+item.link+'"';
                 productItem[index] += 'class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
