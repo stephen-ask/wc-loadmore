@@ -73,7 +73,7 @@ class WC_Loadmore  {
 
         $args = array(
             'category' => array($category_id),
-            'posts_per_page' => 9,
+            'limit' => 9,
             'paged' => $paged
         );
 
