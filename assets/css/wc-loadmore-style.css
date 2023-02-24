@@ -46,8 +46,8 @@
     display: block !important;
 }
 
-.product-author-name {
-    min-height: 21px;
+.page-id-4494 .woocommerce ul.products li.product .price {
+    min-height: 70px;
 }
 
 @media (min-width: 767px) {
