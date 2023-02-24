@@ -4,3 +4,7 @@
 .wc-product-categories .item input {
     margin-right: 10px;
 }
+.product-load-more {
+    margin: 0 auto;
+    display: block;
+}
