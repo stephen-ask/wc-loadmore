@@ -141,6 +141,7 @@
         // LOADS PRODUCTS BASED ON CATEGORY 
         $('.wc-product-category').click(function(e){
             product_array=[];
+            paged = 1;
         
             $('.wc-product-category').prop('checked', false);
             $(this).prop('checked') ? $(this).prop('checked', false) : $(this).prop('checked', true);
