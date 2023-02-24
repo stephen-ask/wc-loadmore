@@ -80,12 +80,8 @@ class WC_Loadmore  {
         );
 
         if($type == 2) {
-            $args['tax_query'] = array(
-                'taxonomy' => 'product_visibility',
-                'field'    => 'name',
-                'terms'    => 'featured',
-                'operator' => 'IN', 
-            );
+            $args['meta_key'] = '_featured';
+			$args['meta_value'] = 'yes';
         } 
 
         if($type == 3) {
