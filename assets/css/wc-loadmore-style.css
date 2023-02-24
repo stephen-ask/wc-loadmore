@@ -1,0 +1,6 @@
+.wc-product-categories  {
+    list-style: none;
+}
+.wc-product-categories .item input {
+    margin-right: 10px;
+}
