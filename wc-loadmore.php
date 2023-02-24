@@ -74,7 +74,8 @@ class WC_Loadmore  {
         $args = array(
             'category' => array($category_id),
             'limit' => 9,
-            'paged' => $paged
+            'paged' => $paged,
+            'status' => 'publish'
         );
 
         // RETURN ERROR IF FUNTION DOES NOT EXIST 
